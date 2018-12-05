@@ -1,0 +1,14 @@
+---
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+<img src="images/elarebhi.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
+I am currently majoring in statistic at[the Higher School of Statistics and Information Analysis Tunisia](http://www.essai.rnu.tn/accueil.htm) and will receive my degree in 2019-2020. While I have a deep mathematical background, my emphasis is on data analysis Risk management, Business Management, financial engineering.
+
+Among the projects I did is to apply a logit model on a database to minimize the risk and classify applicant weather considered a Good or a Bad credit risk also with Java i build a game with an gui interphase that connects to an sgbd that stokes the players information swing,awt
+
+I like to analyze data to answer research questions and test hypotheses. Currently I'm intrested in comparing models using the algorithme of neural network in parallel with classic model especially in the financial field
+ 
+I love working with R also python , 
+My CV is available [here](files/elarebhicv.pdf).

@@ -1,0 +1,26 @@
+name: "Rebhi Ela"
+output_dir: "."
+navbar:
+  title: "rebhi ela"
+  left:
+    - text: "CV"
+      href: CV.html
+    - text: "cover letter"
+      href: cover.html
+    - text: "Projects"
+      href: projects.html
+    - text: "activities"
+      href: teaching.html
+  right:
+    - icon: fa-envelope fa-lg
+      href: contact.html
+    - icon: fa-github fa-lg
+      href: http://github.com/rebhiala
+    - icon: fa-twitter fa-lg
+      href: https://twitter.com/RebhiAla
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/alaa-rebhi-133741150/
+output:
+  html_document:
+    theme: paper
+    css: 'styles.css'
