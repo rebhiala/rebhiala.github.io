@@ -1,0 +1,76 @@
+---
+title: "Agriculture, Forestry and fishing - Total "
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+<style>                     
+.navbar {
+  background-color:#660033;
+  border-color:black;
+}
+.navbar-brand {
+color:white!important;
+}
+
+</style>                    
+
+
+
+
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Carte de la Tunisie
+
+```{r}
+library(leaflet)
+library(readr)
+chom<-read.csv("C:/Users/user/Downloads/chomage (1).csv")
+values<-c(2699,2699,5205,11839,51226,10088,26007,35467,43941,15979,111492,8780,9581,25867,79370,37065,28485,105759,15203,11598,3949,10696,5387,59617)
+chom<-cbind(chom,values)
+agri<-chom[,-2]
+agri
+codemap= agri
+
+library(raster)
+tnMAP=getData(name = "GADM", country="TUN" , level = 1)
+
+i=match(tnMAP$HASC_1,codemap$HASC_1)
+
+
+tnMAP=cbind.Spatial(tnMAP,codemap[i,])
+
+col=colorRampPalette(c("firebrick4" , "grey"))                                                                         
+e=col(24) 
+tnMAP@data$values=as.numeric(tnMAP@data$values)
+pal=colorNumeric(e,domain = tnMAP@data$values)
+leaflet(tnMAP)%>%addProviderTiles(providers$CartoDB.Positron )%>% addPolygons(stroke = FALSE , smoothFactor = 0.2 ,fillColor = pal(tnMAP@data$values), fillOpacity = 0.8 ,    popup = paste(tnMAP@data$Area,tnMAP@data$values, 
+                                 sep = " "))%>%  addLegend(pal = pal , values = ~values , opacity = 1.5 , position = "bottomright" )
+                                 
+   
+
+```
+Row {.tabset .tabset-fade}
+-----------------------------------------------------------------------
+
+### les donn?es de la Base
+
+```{r}
+library(RColorBrewer)
+library(DT)
+data=codemap[,c(1,2)]
+datatable(data , extensions = 'Buttons', options = list(
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
+  ))
+  
+```
+`
+
